@@ -32,6 +32,11 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require("./config/passport")(passport);
 // route
 app.get("/", (req, res) =>{
     res.send("Invalid Endpoint");
